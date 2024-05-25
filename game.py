@@ -21,6 +21,7 @@ pig_rect = pig_surface.get_rect(bottomright = (600,325))
 
 player_surf = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
 player_rect = player_surf.get_rect(midbottom = (80,300)) 
+player_gravity = 0
 
 while True:
     for event in pygame.event.get():
@@ -46,6 +47,9 @@ while True:
     pig_rect.x -= 4
     if pig_rect.right <= 0: pig_rect.left = 800
     screen.blit(pig_surface, pig_rect)
+
+    # Player
+    player_gravity += 1
     screen.blit(player_surf,player_rect)
 
     # keys = pygame.key.get_pressed()
